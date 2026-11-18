@@ -44,9 +44,9 @@ function execute(command, args) {
 
         
         case "EXPIRE":
-                if (args.length !== 2) return "ERR wrong number of arguments";
-                if (!Number.isInteger(Number(args[1])) || Number(args[1]) < 0) {
-                return "ERR invalid expiration time";
+            if (args.length !== 2) return "ERR wrong number of arguments";
+            if (!Number.isInteger(Number(args[1])) || Number(args[1]) < 0) {
+            return "ERR invalid expiration time";
             }
         return db.expire(args[0], Number(args[1]));
 
@@ -85,3 +85,4 @@ rl.on("close", () => {
     console.log("RedisLite shutting down...");
     process.exit(0);
 });
+
